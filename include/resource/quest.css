@@ -1,0 +1,235 @@
+.barPrincipal {
+	background: url('../images/barPrincipal.png');
+	color: White;
+	font-weight: bold;
+	font-size: 11px;
+	vertical-align: middle;
+	background-repeat: repeat-x;
+	background-position: center center;
+	height: 17px;
+}
+
+body {
+	text-align: left;
+	margin: 0 auto;
+	position: relative;
+	font-family: Verdana, Garamond, Tahoma, "Times New Roman", Arial;
+}
+
+.btnPrincipal {
+	background: url('../images/btnPrincipal.png');
+	vertical-align: middle;
+	color: White;
+	font-weight: bold;
+	font-size: 11px;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-right: 0px solid;
+	border-top: 0px solid;
+	border-left: 0px solid;
+	border-bottom: 0px solid;
+	width: 85px;
+	height: 21px;
+}
+
+.celNombre {
+	background-color: #E6E6E6;
+	color: #000000;
+	font-size: 10px;
+	text-indent: 3px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.celda-valor {
+	background-color: #FAFAFA;
+	color: #000000;
+}
+
+.edtNumber,.edt,.edtUno,.edtDos,.edtTres,.edtCuatro,.edtCinco {
+	font-size: 11px;
+	height: 16px;
+	border: 1px solid #d4d4d4;
+	background: white url(../images/input_text.gif) repeat-x bottom left;
+}
+
+.edtNumber {
+	width: 30px;
+}
+
+.edt {
+	width: 65px;
+}
+
+.edtUno {
+	width: 125px;
+}
+
+.edtDos {
+	width: 150px;
+}
+
+.edtTres {
+	width: 200px;
+}
+
+.edtCuatro {
+	width: 250px;
+}
+
+.edtCinco {
+	width: 300px;
+}
+
+.dgPrincipal {
+	background-color: white;
+	padding: 0px;
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 11px;
+}
+
+.dgCabecerax {
+	background-color: #E6E6E6;
+	color: #000000;
+	font-size: 10px;
+	text-indent: 3px;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 20%;
+	text-align: center;
+}
+
+.dgCabecera {
+	background: url('../images/barPrincipal.png');
+	background-repeat: repeat-x;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+
+.menBarra {
+	font-weight: bold;
+	font-size: 11px;
+	vertical-align: middle;
+}
+
+.menBarra A:link {
+	color: #333333;
+	text-decoration: none;
+}  /* como link */
+.menBarra A:visited {
+	color: #333333;
+	text-decoration: none;
+}  /* cuando esta visible*/
+.menBarra A:active {
+	color: #333333;
+	text-decoration: none;
+}  /* cuando ya fue activo*/
+.menBarra A:hover {
+	color: #FF9900;
+	text-decoration: underline;
+}  /* cuando se sobre pasa el mouse*/
+.msjError {
+	font-size: 12px;
+	font-weight: bold;
+	color: red;
+}
+
+.linEspacioV {
+	height: 20px
+}
+
+.linEspacioD {
+	height: 10px
+}
+
+.linEspacioQ {
+	height: 20px
+}
+
+.lblPrincipal,.lblLogin {	font-size: 12px;	font-weight: bold;	text-align: left;}
+
+.lblPrincipal {color: #333333;}
+.lblLogin {	color: #333333;}
+.linColor {	background-color: gray;	height: 1px;}
+.lnkPrincipal {	color: black;	font-weight: bold;	font-size: 10px;}
+
+.tblBusqueda {background-color: white;}
+
+.tblInformacion {
+	font-size: 11px;
+	background-color: #FAFAFA;
+	color: #000000;
+	border-color: gray;
+	border: thin;
+	border-width: thin;
+	border-style: solid;
+}
+
+.tblInformacionD {font-size: 11px;background-color: #FAFAFA;color: #000000;}
+
+.tilPagina {font-size: 12px;color: #333333;	font-weight: bold;	text-align: center;}
+
+.menu-superior {
+	font-family: Verdana, Garamond, Tahoma, "Arial", Arial;
+	font-size: 10px;
+	height: 30px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	background-image: url('../images/menunegro.png');
+}
+
+.menu-superior A:link {	color: #FFFFFF;	text-decoration: none;}
+.menu-superior A:visited { color: #FFFFFF;	text-decoration: none;}
+.menu-superior A:hover {color: #E6E6E6;	text-decoration: underline;}
+.menu-superior A:active {	color: #FFFFFF;	text-decoration: none;}
+
+table.DataGrid {
+	background-color: white;padding: 0px;
+	width: 100%;border-collapse: collapse;font-size: 11px;	cursor: pointer;}
+
+table.DataGrid th {
+	background: url('../images/barPrincipal.png');	background-repeat: repeat-x;
+	text-align: center;	color: white;	font-weight: bold;}
+
+table.DataGrid td {	text-align: center;}
+
+table.DataGridA {
+	font-size: 11px;
+	background-color: #FAFAFA;
+	color: #000000;
+	border-color: gray;
+	border: thin;
+	border-width: thin;
+	border-style: solid;text-align: center;}
+
+table.DataGridA th {
+	background-color: #E6E6E6;
+	color: #000000;
+	font-size: 10px;
+	text-indent: 3px;
+	font-weight: bold;
+	text-transform: uppercase;}
+
+table.DataGridA td {}
+table.DataGridA tr {}
+
+#blanket {
+	background-color: #111;
+	opacity: 0.65;
+	filter: alpha(opacity = 65);
+	position: absolute;
+	z-index: 9001;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+#popUpDiv {
+	position: absolute;
+	background-color: #eeeeee;
+	z-index: 9002;
+}
