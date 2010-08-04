@@ -1,0 +1,228 @@
+.imcm ul,.imcm li,.imcm div,.imcm span,.imcm a {
+	text-align: left;
+	vertical-align: top;
+	padding: 0px;
+	margin: 0;
+	list-style: none outside none;
+	border-style: none;
+	background-image: none;
+	clear: none;
+	float: none;
+	display: block;
+	position: static;
+	overflow: visible;
+	line-height: normal;
+}
+
+.imcm li a img {
+	display: inline;
+	border-width: 0px;
+}
+
+.imcm span {
+	display: inline;
+}
+
+.imcm .imclear,.imclear {
+	clear: both;
+	height: 0px;
+	visibility: hidden;
+	line-height: 0px;
+	font-size: 1px;
+}
+
+.imcm .imsc {
+	position: relative;
+}
+
+.imcm .imsubc {
+	position: absolute;
+	visibility: hidden;
+}
+
+.imcm li {
+	list-style: none;
+	font-size: 1px;
+	float: left;
+}
+
+.imcm ul ul li {
+	width: 100%;
+	float: none !important;
+}
+
+.imcm a {
+	display: block;
+	position: relative;
+}
+
+.imcm ul .imsc,.imcm ul .imsubc {
+	z-index: 10;
+}
+
+.imcm ul ul .imsc,.imcm ul ul .imsubc {
+	z-index: 20;
+}
+
+.imcm ul ul ul .imsc,.imcm ul ul ul .imsubc {
+	z-index: 30;
+}
+
+.imde ul li:hover .imsubc {
+	visibility: visible;
+}
+
+.imde ul ul li:hover  .imsubc {
+	visibility: visible;
+}
+
+.imde ul ul ul li:hover .imsubc {
+	visibility: visible;
+}
+
+.imde li:hover ul imsubc {
+	visibility: hidden;
+}
+
+.imde li:hover ul ul .imsubc {
+	visibility: hidden;
+}
+
+.imde li:hover ul ul ul  .imsubc {
+	visibility: hidden;
+}
+
+.imcm .imea {
+	display: block;
+	position: relative;
+	left: 0px;
+	font-size: 1px;
+	line-height: 1px;
+	height: 0px;
+	width: 1px;
+	float: right;
+}
+
+.imcm .imea span {
+	display: block;
+	position: relative;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.dvs,.dvm {
+	border-width: 0px
+}
+
+<!--
+****** Estilos del menu ****** -->
+	/* --[[ Icono expandidos del menu ]]-- */ #imenus0 .imeam span,#imenus0 .imeamj span
+	{
+	background-image: url(imagenes/sample3_main_arrow.gif);
+	width: 7px;
+	height: 5px;
+	left: -7px;
+	top: 5px;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+#imenus0 li:hover .imeam span,#imenus0 li a.iactive .imeamj span {
+	background-image: url(imagenes/sample3_main_arrow.gif);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+/* --[[ Sub-contenido del menu ]]-- */
+#imenus0 ul .imeas span,#imenus0 ul .imeasj span {
+	background-image: url(imagenes/sample3_sub_arrow.gif);
+	width: 5px;
+	height: 7px;
+	left: -5px;
+	top: 3px;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+#imenus0 ul li:hover .imeas span,#imenus0 ul li a.iactive .imeasj span {
+	background-image: url(imagenes/sample3_sub_arrow.gif);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+/* --[[ Color de contenido y bordes ]]-- */
+#imouter0 {
+	background-image: url(menunegro.jpg);
+	border-style: none;
+	border-color: none;
+	border-width: 1px;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* --[[ Sub-Contenido ]]-- */
+#imenus0 li ul {
+	background-color: #efefef;
+	border-style: solid;
+	border-color: #cccccc;
+	border-width: 1px;
+	padding: 5px;
+	margin: 4px 0px 0px;
+}
+
+/* --[[ Color de los textos y bordes del menu]]-- */
+#imenus0 li a,#imenus0 .imctitle {
+	color: #FFFFFF;
+	text-align: left;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	border-style: solid;
+	border-color: #FF9900;
+	border-width: 0px;
+	padding: 2px 8px;
+}
+
+/* [encima] - Esta configuracion es basica para internet explorer 4.5 en adelante.*/
+#imenus0 li:hover>a {
+	background-color: #ffffff;
+	text-decoration: none;
+}
+
+#imenus0 li a.ihover,.imde imenus0 a:hover {
+	background-color: #FF9900;
+	text-decoration: none;
+}
+
+/* [activo] */
+#imenus0 li a.iactive {
+	
+}
+
+/* --[[ Color de los menus desplegables ]]-- */
+#imenus0 ul a,#imenus0 .imsubc li .imctitle {
+	color: #555555;
+	text-align: left;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	border-style: none;
+	border-color: #000000;
+	border-width: 1px;
+	padding: 2px 5px;
+}
+
+/* [encima] - Compatibilidad con Internet Explorer 6.*/
+#imenus0 ul li:hover>a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#imenus0 ul li a.ihover {
+	color: #000000;
+	text-decoration: none;
+}  /* Cuando pasas encima del desplegable*/ /* [activo] */
+#imenus0 ul li a.iactive {
+	background-color: #ffffff;
+}

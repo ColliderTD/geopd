@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Conexion>
+	<rrhh>
+		<Server>209.208.32.77</Server>
+		<User>geo</User>
+		<Pass>geo20</Pass>
+		<BD>geo</BD>
+	</rrhh>
+</Conexion>
