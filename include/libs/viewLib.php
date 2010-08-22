@@ -16,6 +16,7 @@ class ViewLib
 	{
 		$lViewPath = ViewFol. $lPage.'View.php';
 
+
 		if (file_exists($lViewPath) == false)
 		{	trigger_error ('Template `' . $lViewPath . '` does not exist.', E_USER_NOTICE);
 			return false;}
@@ -43,7 +44,9 @@ class ViewLib
 
 		if(is_array($lVars))
 		{	foreach ($lVars as $lKey => $lValue)
-			{	$$lKey = $lValue;}
+			{	$$lKey = $lValue;
+
+                        }
 		}
 
 		include($lViewPath);
