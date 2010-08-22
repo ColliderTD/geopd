@@ -28,5 +28,7 @@ define('lCss',
 <link href="'.Res.'calendar.css" rel="stylesheet" type="text/css"/>');
 define('lJs',
 '<script src="'.Res.'quest.js"></script>
-<script src="'.Res.'calendar.js"></script>');
+<script src="'.Res.'calendar.js"></script>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxTPZYElJSBeBUeMSX5xXgq6lLjHthSAk20WnZ_iuuzhMt60X_ukms-AUg" type="text/javascript"></script>
+');
 ?>

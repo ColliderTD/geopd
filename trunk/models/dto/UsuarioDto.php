@@ -38,7 +38,6 @@ class UsuarioDTO extends ModelLib
 		}
 		else
 		{
-
 			if($this->objRol->get('Visita')==1)
 			header("Location:index.php?Page=Utilitario&Action=Mensaje&Codigo=1");
 		}
