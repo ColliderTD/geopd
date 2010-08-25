@@ -24,7 +24,7 @@ class UbicacionMod extends ModelLib
     public function XMLUbicacion($CeluarID)
     {
         $dom = new DOMDocument("1.0");
-        $node = $dom->createElement("markers");
+        $node = $dom->createElement("ubicaciones");
         $parnode = $dom->appendChild($node);
 
         $qListar = sprintf(ListUbicacion,$CeluarID);
