@@ -46,7 +46,7 @@ class BBCon extends ControllerLib
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
             $this->oAjax->AgrJsPage("createmarkergmaps",null);
-            
+
             $lVars['btnListar']= $this->oHtml->imgbutton('lsCelulares();','pDetalle.png','Listar Celulares');
 
             $lVars['Menu']=$eUsuario->get('objRol')->get('lMenu');
@@ -61,9 +61,9 @@ class BBCon extends ControllerLib
             $oCelularBBMod = new CelularBBMod();
 //            $eUsuario = new UsuarioDTO();
             $eUsuario = unserialize($_SESSION['eUsuario']);
-   
+
             $dsCelulares = $oCelularBBMod->GetCelulares($eUsuario->UsuarioID);
-            $lnkVerMas = $this->oHtml->lnkbutton("CelDetalles('%s');",'Ver más');
+            $lnkVerMas = $this->oHtml->lnkbutton("CelDetalles('%s');load();",'Ver más');
 
             $dgView=new DataGrid($dsCelulares,'','DataGridA');
             $dgView->lCabecera=array(array('12%','CELULAR'),array('52%','APELLIDOS y NOMBRES'),array('12%',''));
