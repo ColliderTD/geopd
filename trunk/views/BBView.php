@@ -10,8 +10,8 @@
 		<td colspan="5"></td>
 	</tr>
 	<tr class="menBarra">
-		<td width="20%"><?=$btnListar;?></td>
-		<td width="20%"><?=$btnUsuario?></td>
+		<td width="20%"><?=$btnVerMapa?></td>
+		<td width="20%"></td>
 		<td width="20%"></td>
 		<td width="20%"></td>
 		<td width="20%"></td>

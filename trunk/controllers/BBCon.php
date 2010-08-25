@@ -42,7 +42,11 @@ class BBCon extends ControllerLib
             $sPage="index.php?Page=BB&Action=";
             $this->oAjax->AgrFuncion($sPage."lsCelulares",'lsCelulares','','divResultados','innerHTML','GET',1,1);
             $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles','','divResultados','innerHTML','GET',1,1);
-  
+
+            $this->oAjax->AgrJsPage("iconos",null);
+            $this->oAjax->AgrJsPage("loadgmaps",null);
+            $this->oAjax->AgrJsPage("createmarkergmaps",null);
+            
             $lVars['btnListar']= $this->oHtml->imgbutton('lsCelulares();','pDetalle.png','Listar Celulares');
 
             $lVars['Menu']=$eUsuario->get('objRol')->get('lMenu');
@@ -80,9 +84,15 @@ class BBCon extends ControllerLib
 
         public function CelDetalles()
         {
-            $this->oAjax->AgrJsPage("iconos",null);
-            $this->oAjax->AgrJsPage("loadgmaps",null);
-            $this->oAjax->AgrJsPage("createmarkergmaps",null);
+            $lVars['btnVerMapa'] = $this->oHtml->button('btnVerMapa','btnPrincipal','Ver Mapa',array("onClick","Load()"));
+
+//            $this->oAjax->AgrJsPage("iconos",null);
+//            $this->oAjax->AgrJsPage("loadgmaps",null);
+//            $this->oAjax->AgrJsPage("createmarkergmaps",null);
+//            $lVars['Ajax']=$this->oAjax->ImprimirJs();
+
+
+            $this->lView->replacePage("BBMas",$lVars);
 
         }
 
