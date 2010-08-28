@@ -42,8 +42,7 @@ define("loadgmaps","function load() {
           var xml = GXml.parse(data);
           
           var markers = xml.documentElement.getElementsByTagName(\"ubicacion\");
-          
-   
+
           for (var i = 0; i < markers.length; i++) {
             
             var name = markers[i].getAttribute(\"CelularBBID\");
@@ -54,6 +53,7 @@ define("loadgmaps","function load() {
             var marker = createMarker(point, name, Fecha, type);
             map.addOverlay(marker);
           }
+          map.setCenter(new GLatLng(parseFloat(markers[markers.length-1].getAttribute(\"Latitud\")),parseFloat(markers[markers.length-1].getAttribute(\"Longitud\"))), 13);
         });
       }
     }

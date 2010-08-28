@@ -77,24 +77,16 @@ class BBCon extends ControllerLib
         public function Genxml()
         {
             $oUbicacionMod = new UbicacionMod();
-            $CelularBBID = $_GET["CelID"];
+            $CelularBBID = $_SESSION["sCelID"];
             header('Content-type: text/xml; charset=iso-8859-1');
             echo $oUbicacionMod->XMLUbicacion($CelularBBID);
         }
 
         public function CelDetalles()
         {
-            //$lVars['btnVerMapa'] = $this->oHtml->button('btnVerMapa','btnPrincipal','Ver Mapa',array("onClick","Load()"));
+            $lVars=null;
 
-        	$lVars=null;
-
-           // $_SESSION["CelularBBID"] = $CelularBBID;
-            echo $_GET["CelID"];
-//            $this->oAjax->AgrJsPage("iconos",null);
-//            $this->oAjax->AgrJsPage("loadgmaps",null);
-//            $this->oAjax->AgrJsPage("createmarkergmaps",null);
-//            $lVars['Ajax']=$this->oAjax->ImprimirJs();
-
+            $_SESSION["sCelID"] = $_GET["CelID"];
 
             $this->lView->replacePage("BBMas",$lVars);
 

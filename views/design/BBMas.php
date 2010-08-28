@@ -3,7 +3,7 @@
 		<td colspan="5"></td>
 	</tr>
 	<tr class="tilPagina">
-		<td colspan="5">MAP</td>
+		<td colspan="5">MAPA</td>
 	</tr>
 	<tr class="linEspacioQ">
 		<td colspan="5"></td>
