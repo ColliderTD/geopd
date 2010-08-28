@@ -31,7 +31,7 @@ define("iconos","var iconBlue = new GIcon();
     customIcons[\"bar\"] = iconRed;
 ");
 
-define("loadgmaps","function load() { alert('1');
+define("loadgmaps","function load() {
       if (GBrowserIsCompatible()) { 
         var map = new GMap2(document.getElementById(\"map\"));
         map.addControl(new GSmallMapControl());
@@ -40,9 +40,12 @@ define("loadgmaps","function load() { alert('1');
 
         GDownloadUrl(\"index.php?Page=BB&Action=Genxml\", function(data) {
           var xml = GXml.parse(data);
+          
           var markers = xml.documentElement.getElementsByTagName(\"ubicacion\");
+          alert(markers.length);
+   
           for (var i = 0; i < markers.length; i++) {
-            alert('2');
+            alert('3');
             var name = markers[i].getAttribute(\"CelularBBID\");
             var Fecha = markers[i].getAttribute(\"Fecha\");
             var type = markers[i].getAttribute(\"type\");
