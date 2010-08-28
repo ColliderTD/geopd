@@ -39,7 +39,7 @@ class BBCon extends ControllerLib
 
             $sPage="index.php?Page=BB&Action=";
             $this->oAjax->AgrFuncion($sPage."lsCelulares",'lsCelulares','','divResultados','innerHTML','GET',1,1);
-            $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles','','divResultados','innerHTML','GET',1,1);
+            $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles',array('CelID'),'divResultados','innerHTML','GET',1,1);
 
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
@@ -82,11 +82,14 @@ class BBCon extends ControllerLib
             echo $oUbicacionMod->XMLUbicacion($CelularBBID);
         }
 
-        public function CelDetalles($CelularBBID)
+        public function CelDetalles()
         {
             //$lVars['btnVerMapa'] = $this->oHtml->button('btnVerMapa','btnPrincipal','Ver Mapa',array("onClick","Load()"));
 
-            $_SESSION["CelularBBID"] = $CelularBBID;
+        	$lVars=null;
+
+           // $_SESSION["CelularBBID"] = $CelularBBID;
+            echo $_GET["CelID"];
 //            $this->oAjax->AgrJsPage("iconos",null);
 //            $this->oAjax->AgrJsPage("loadgmaps",null);
 //            $this->oAjax->AgrJsPage("createmarkergmaps",null);
