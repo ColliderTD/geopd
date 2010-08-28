@@ -1,5 +1,4 @@
 <?php
-
 require_once("config.php");
 require_once(ModFol."CelularBBMod.php");
 
@@ -17,7 +16,4 @@ class CelularBBDTO extends ModelLib
     {
 
     }
-
-}
-
-?>
+}?>

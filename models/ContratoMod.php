@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("config.php");
 require_once(Dao."ContratoDao.php");
 require_once(Dto."ContratoDto.php");
@@ -40,6 +34,4 @@ class ContratoMod extends ModelLib
 		return true;
 	}
 
-}
-
-?>
+}?>

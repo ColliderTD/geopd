@@ -1,7 +1,5 @@
 <?php
-
 require_once("config.php");
-
 require_once(ModFol."UsuarioMod.php");
 require_once(ModFol."RolMod.php");
 require_once(ModFol."UbicacionMod.php");
@@ -79,6 +77,7 @@ class BBCon extends ControllerLib
         public function Genxml()
         {
             $oUbicacionMod = new UbicacionMod();
+            header('Content-type: text/xml; charset=iso-8859-1');
             echo $oUbicacionMod->XMLUbicacion(1);
         }
 
@@ -95,7 +94,4 @@ class BBCon extends ControllerLib
             $this->lView->replacePage("BBMas",$lVars);
 
         }
-
-}
-
-?>
+}?>

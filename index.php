@@ -1,12 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
-
-
 function Main() {
 	ob_start();
 	require_once("config.php");
@@ -38,14 +30,5 @@ function Main() {
 	$lObjController ->$lAction();
 
 }
-
 Main();
-
-ob_end_flush();
-
-
-
-
-
-
-?>
+ob_end_flush();?>

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("config.php");
 class InicioCon extends ControllerLib
 {
@@ -38,6 +32,4 @@ class InicioCon extends ControllerLib
 
 		$this->lView->show($this->lPage,$lVars);
 	}
-}
-
-?>
+}?>

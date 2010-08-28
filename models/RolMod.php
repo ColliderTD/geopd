@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("config.php");
 require_once(Dao."RolDao.php");
 require_once(Dto."RolDto.php");
@@ -31,6 +25,4 @@ class RolMod extends ModelLib
 		$lResult=$this->db->ExecuteQuery($qPaginas);
 		return $lResult;
 	}
-}
-
-?>
+}?>

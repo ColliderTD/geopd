@@ -1,9 +1,7 @@
-
 <?php
 require_once("config.php");
 class DalLib extends PrincipalLib
 {
-
 
 	private $serv; //servidor de base de datos
 	private $user; //usuario base de datos
@@ -140,10 +138,4 @@ class DalLib extends PrincipalLib
 	{
 
 	}
-}
-
-/*$clase = new DalLib();
- //$clase->Conectar();
- $clase->ExecuteQuery("Select * from Ubigeo");*/
-?>
-
+}?>

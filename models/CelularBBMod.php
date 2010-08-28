@@ -1,5 +1,4 @@
 <?php
-
 require_once("config.php");
 require_once(Dao."CelularBBDao.php");
 require_once(Dto."CelularBBDto.php");
@@ -21,6 +20,4 @@ class CelularBBMod extends ModelLib
 
             return $lResult;
         }
-}
-
-?>
+}?>

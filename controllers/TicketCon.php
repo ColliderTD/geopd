@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos
- * @copyright 2009
- */
-
 require_once("config.php");
 require_once(ModFol."TicketMod.php");
 require_once(Dto."UsuarioTicketDto.php");
@@ -52,6 +46,4 @@ class TicketCon extends ControllerLib
 		return self::$instance;
 	}
 
-}
-
-?>
+}?>

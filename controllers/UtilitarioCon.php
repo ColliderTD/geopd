@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("config.php");
 require_once(Dao."UtilitarioDao.php");
 require_once(ModFol."UsuarioMod.php");
@@ -60,6 +54,4 @@ class UtilitarioCon extends ControllerLib
       echo $dgView->Imprimir();
 	}
 
-}
-
-?>
+}?>

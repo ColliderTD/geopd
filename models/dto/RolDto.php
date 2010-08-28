@@ -37,6 +37,4 @@ class RolDTO extends ModelLib
 		$Menu=$Menu.FinModulo.FinMenu.MenuJS;
 		$this->lMenu= $Menu;
 	}
-}
-
-?>
+}?>

@@ -1,11 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
-
 class HtmlLib
 {
 	private static $instance = null;

@@ -21,6 +21,4 @@ class UbicacionDTO extends ModelLib
         $this->CelularID = $oCelularBBDto->CelularBBID;
     }
 
-}
-
-?>
+}?>

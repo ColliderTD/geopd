@@ -1,15 +1,5 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("csDef.php");
-
-
-
-
 class DataGrid
 {
 	var $lCabecera=null;
