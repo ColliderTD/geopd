@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("config.php");
 require_once(Dao."UsuarioDao.php");
 require_once(Dto."UsuarioDto.php");
@@ -72,6 +66,4 @@ class UsuarioMod extends ModelLib
 		return $lResult;
 	}
 
-}
-
-?>
+}?>

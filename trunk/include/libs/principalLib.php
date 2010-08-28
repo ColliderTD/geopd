@@ -1,9 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
 abstract class PrincipalLib
 {
 	private function __construct() {  }

@@ -1,16 +1,13 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 session_start();
 require_once("include/libs/principalLib.php");
 require_once("include/libs/controllerLib.php");
+
 require_once("include/libs/viewLib.php");
 require_once("include/libs/modelLib.php");
+
 require_once("include/libs/htmlLib.php");
+
 require_once("include/libs/dalLib.php");
 require_once("include/libs/ajaxLib.php");
 require_once("include/libs/dgLib.php");
@@ -30,5 +27,4 @@ define('lJs',
 '<script src="'.Res.'quest.js"></script>
 <script src="'.Res.'calendar.js"></script>
 <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxTPZYElJSBeBUeMSX5xXgq6lLjHthSAk20WnZ_iuuzhMt60X_ukms-AUg" type="text/javascript"></script>
-');
-?>
+');?>

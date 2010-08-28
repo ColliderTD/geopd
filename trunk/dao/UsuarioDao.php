@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 define("GetPaginasbyUsuario",
 "Select p.PaginaNom,p.PaginaUrl,m.ModuloNom
 from  usuario u, Rol r, Rol_accion ra, accion a, pagina p, modulo m

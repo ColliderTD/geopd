@@ -43,6 +43,4 @@ class UsuarioDTO extends ModelLib
 		}
 		$oUsuario->InsVista($this->UsuarioID,$Documento,$sPersona,$iEstado,$iContrato);
 	}
-}
-
-?>
+}?>

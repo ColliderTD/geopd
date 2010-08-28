@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("config.php");
 require_once(Dao."TicketDao.php");
 class TicketMod extends ModelLib
@@ -29,6 +23,4 @@ class TicketMod extends ModelLib
 		$lResult=$this->db->ExecuteQuery($qTicket);
 		return $this->db->NroRows();
 	}
-}
-
-?>
+}?>

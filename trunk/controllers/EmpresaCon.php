@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("config.php");
 require_once(ModFol."EmpresaMod.php");
 require_once(ModFol."UsuarioMod.php");
@@ -177,6 +171,4 @@ class EmpresaCon extends ControllerLib
 		echo $dgView->Imprimir();
 
 	}
-}
-
-?>
+}?>

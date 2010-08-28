@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos
- * @copyright 2009
- */
-
 class UsuarioTicketDTO
 {
 	var $Login;
@@ -26,9 +20,4 @@ class UsuarioTicketDTO
 	{
 		return $this->Ticket;
 	}
-
-
-
-}
-
-?>
+}?>

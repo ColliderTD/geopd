@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Carlos Candela
- * @copyright 2009
- */
-
 require_once("csDef.php");
 class AjaxLib
 {
@@ -140,6 +134,4 @@ class AjaxLib
 
 		return $lReturn;
 	}
-}
-
-?>
+}?>

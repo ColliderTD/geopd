@@ -26,6 +26,4 @@ class ContratoDTO extends ModelLib
 		$this->Vistas_Utiles--;
 	}
 
-}
-
-?>
+}?>

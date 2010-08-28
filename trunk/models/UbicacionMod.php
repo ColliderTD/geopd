@@ -1,5 +1,4 @@
 <?php
-
 require_once("config.php");
 require_once(Dao."UbicacionDao.php");
 require_once(Dto."UbicacionDto.php");
@@ -45,5 +44,4 @@ class UbicacionMod extends ModelLib
         return $dom->saveXML();
 
     }
-}
-?>
+}?>
