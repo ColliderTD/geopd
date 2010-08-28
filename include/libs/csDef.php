@@ -32,11 +32,11 @@ define("iconos","var iconBlue = new GIcon();
 ");
 
 define("loadgmaps","function load() {
-      if (GBrowserIsCompatible()) { 
+      if (GBrowserIsCompatible()) { alert('1');
         var map = new GMap2(document.getElementById(\"map\"));
         map.addControl(new GSmallMapControl());
         map.addControl(new GMapTypeControl());
-        map.setCenter(new GLatLng(47.614495, -122.341861), 13);
+        map.setCenter(new GLatLng(-12.05, -77.05), 13);
 
         GDownloadUrl(\"index.php?Page=BB&Action=Genxml\", function(data) {
           var xml = GXml.parse(data);
@@ -45,7 +45,7 @@ define("loadgmaps","function load() {
           alert(markers.length);
    
           for (var i = 0; i < markers.length; i++) {
-            alert('3');
+            
             var name = markers[i].getAttribute(\"CelularBBID\");
             var Fecha = markers[i].getAttribute(\"Fecha\");
             var type = markers[i].getAttribute(\"type\");
