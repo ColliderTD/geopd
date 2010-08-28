@@ -61,7 +61,7 @@ class BBCon extends ControllerLib
             $eUsuario = unserialize($_SESSION['eUsuario']);
 
             $dsCelulares = $oCelularBBMod->GetCelulares($eUsuario->UsuarioID);
-            $lnkVerMas = $this->oHtml->lnkbutton("CelDetalles('%s');load();",'Ver más');
+            $lnkVerMas = $this->oHtml->lnkbutton("CelDetalles(%s);load();",'Ver más');
 
             $dgView=new DataGrid($dsCelulares,'','DataGridA');
             $dgView->lCabecera=array(array('12%','CELULAR'),array('52%','APELLIDOS y NOMBRES'),array('12%',''));
@@ -77,14 +77,16 @@ class BBCon extends ControllerLib
         public function Genxml()
         {
             $oUbicacionMod = new UbicacionMod();
+            $CelularBBID = $_SESSION['CelularBBID'];
             header('Content-type: text/xml; charset=iso-8859-1');
-            echo $oUbicacionMod->XMLUbicacion(1);
+            echo $oUbicacionMod->XMLUbicacion($CelularBBID);
         }
 
-        public function CelDetalles()
+        public function CelDetalles($CelularBBID)
         {
-            $lVars['btnVerMapa'] = $this->oHtml->button('btnVerMapa','btnPrincipal','Ver Mapa',array("onClick","Load()"));
+            //$lVars['btnVerMapa'] = $this->oHtml->button('btnVerMapa','btnPrincipal','Ver Mapa',array("onClick","Load()"));
 
+            $_SESSION["CelularBBID"] = $CelularBBID;
 //            $this->oAjax->AgrJsPage("iconos",null);
 //            $this->oAjax->AgrJsPage("loadgmaps",null);
 //            $this->oAjax->AgrJsPage("createmarkergmaps",null);

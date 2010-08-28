@@ -32,7 +32,7 @@ define("iconos","var iconBlue = new GIcon();
 ");
 
 define("loadgmaps","function load() {
-      if (GBrowserIsCompatible()) { alert('1');
+      if (GBrowserIsCompatible()) { alert('9');
         var map = new GMap2(document.getElementById(\"map\"));
         map.addControl(new GSmallMapControl());
         map.addControl(new GMapTypeControl());
@@ -42,7 +42,7 @@ define("loadgmaps","function load() {
           var xml = GXml.parse(data);
           
           var markers = xml.documentElement.getElementsByTagName(\"ubicacion\");
-          alert(markers.length);
+          
    
           for (var i = 0; i < markers.length; i++) {
             
