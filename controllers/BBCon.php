@@ -77,7 +77,7 @@ class BBCon extends ControllerLib
         public function Genxml()
         {
             $oUbicacionMod = new UbicacionMod();
-            $CelularBBID = $_SESSION['CelularBBID'];
+            $CelularBBID = $_GET["CelID"];
             header('Content-type: text/xml; charset=iso-8859-1');
             echo $oUbicacionMod->XMLUbicacion($CelularBBID);
         }
