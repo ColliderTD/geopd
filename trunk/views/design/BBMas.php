@@ -10,10 +10,10 @@
 	</tr>
 	<tr class="menBarra">
 		<td width="20%"><?=$btnListar;?></td>
-		<td width="20%"><?=$btnVerMapa;?></td>
-		<td width="20%"></td>
-		<td width="20%"></td>
-		<td width="20%"></td>
+		<td width="20%"><?=$btnVerHoy;?></td>
+		<td width="20%"><?=$btnVerAyer;?></td>
+		<td width="20%"><?=$btnVerSemana;?></td>
+		<td width="20%"><?=$btnBuscar;?></td>
 	</tr>
 	<tr class="linEspacioQ">
 		<td colspan="4"></td>
@@ -21,7 +21,7 @@
 	<tr>
 		<td colspan="5">
                     <div id="divResultados">
-                        <div id="map" style="width: 500px; height: 300px"></div>
+                        <div id="map" style="width: 900px; height: 400px"></div>
                     </div>
 		</td>
 	</tr>
