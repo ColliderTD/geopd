@@ -20,13 +20,13 @@ class UbicacionMod extends ModelLib
 
     }
 
-    public function XMLUbicacion($CeluarID)
+    public function XMLUbicacion($CeluarID,$FechaMax,$FechaMin)
     {
         $dom = new DOMDocument("1.0");
         $node = $dom->createElement("ubicaciones");
         $parnode = $dom->appendChild($node);
 
-        $qListar = sprintf(ListUbicacion,$CeluarID);
+        $qListar = sprintf(ListUbicacion,$CeluarID,$FechaMax,$FechaMin);
         $lResult=$this->db->ExecuteQuery($qListar);
 
         while ($row = @mysql_fetch_assoc($lResult))
