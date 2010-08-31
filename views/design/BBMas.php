@@ -1,22 +1,23 @@
 <table width="95%" class="tblBusqueda">
-	<tr class="linEspacioQ">
-		<td colspan="5"></td>
-	</tr>
 	<tr class="tilPagina">
 		<td colspan="5">MAPA</td>
 	</tr>
-	<tr class="linEspacioQ">
-		<td colspan="5"></td>
-	</tr>
+	
 	<tr class="menBarra">
-		<td width="20%"><?=$btnListar;?></td>
 		<td width="20%"><?=$btnVerHoy;?></td>
-		<td width="20%"><?=$btnVerAyer;?></td>
-		<td width="20%"><?=$btnVerSemana;?></td>
-		<td width="20%"><?=$btnBuscar;?></td>
+                <td width="20%">Fecha Inicio</td>
+                <td width="20%"><?=$edtFecInicio;?></td>
+                <td width="20%">Hora  Inicio</td>
 	</tr>
-	<tr class="linEspacioQ">
-		<td colspan="4"></td>
+        <tr class="menBarra">
+		<td width="20%"></td>
+                <td width="20%">Fecha Fin</td>
+                <td width="20%"><?=$edtFecFin;?></td>
+                <td width="20%">Hora  Fin</td>
+	</tr>
+        <tr class="menBarra">
+		<td width="20%"></td>
+                
 	</tr>
 	<tr>
 		<td colspan="5">
