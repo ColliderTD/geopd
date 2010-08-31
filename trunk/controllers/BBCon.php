@@ -61,7 +61,7 @@ class BBCon extends ControllerLib
             $eUsuario = unserialize($_SESSION['eUsuario']);
 
             $dsCelulares = $oCelularBBMod->GetCelulares($eUsuario->UsuarioID);
-            $lnkVerMas = $this->oHtml->lnkbutton("CelDetalles(%s);load();",'Ver más');
+            $lnkVerMas = $this->oHtml->lnkbutton("CelDetalles(%s);loadMap();",'Ver más');
 
             $dgView=new DataGrid($dsCelulares,'','DataGridA');
             $dgView->lCabecera=array(array('12%','CELULAR'),array('52%','APELLIDOS y NOMBRES'),array('12%',''));
@@ -78,8 +78,16 @@ class BBCon extends ControllerLib
         {
             $oUbicacionMod = new UbicacionMod();
             $CelularBBID = $_SESSION["sCelID"];
+            $FechaMax = '9999-99-99';
+            $FechaMin = '0000-00-00';
+            
+            //if(isset($_GET["FechaMax"]))
+                    $FechaMax = $_GET["FechaMax"];
+            //if(isset($_GET["FechaMin"]))
+                    $FechaMin = $_GET["FechaMin"];
+            
             header('Content-type: text/xml; charset=iso-8859-1');
-            echo $oUbicacionMod->XMLUbicacion($CelularBBID,'','');
+            echo $oUbicacionMod->XMLUbicacion($CelularBBID,$FechaMax,$FechaMin);
         }
 
         public function CelDetalles()
@@ -88,15 +96,26 @@ class BBCon extends ControllerLib
 
             $_SESSION["sCelID"] = $_GET["CelID"];
 
-            $lVars["btnListar"] = $this->oHtml->button("btnListar","btnPrincipal","Listar","arrya('onclik','Load()')");
-            $lVars["btnVerHoy"] = $this->oHtml->button("btnVerHoy","btnPrincipal","Hoy",array('onclick','load()'));
-            $lVars["btnVerAyer"] = $this->oHtml->button("btnVerAyer","btnPrincipal","Ayer","Load()");
-            $lVars["btnVerSemana"] = $this->oHtml->button("btnVerSemana","btnPrincipal","Semana","Load()");
-            $lVars["btnBuscar"] = $this->oHtml->button("btnBuscar","btnPrincipal","Buscar","Load()");
+            $lVars["btnListar"] = $this->oHtml->button("btnListar","btnPrincipal","Listar","");
+            $lVars["btnVerHoy"] = $this->oHtml->button("btnVerHoy","btnPrincipal","Hoy",array('onclick','loadMap(2008-12-30,2006-11-15)'));
+            $lVars["btnVerAyer"] = $this->oHtml->button("btnVerAyer","btnPrincipal","Ayer","Ayer();");
+            $lVars["btnVerSemana"] = $this->oHtml->button("btnVerSemana","btnPrincipal","Semana","");
+            $lVars["btnBuscar"] = $this->oHtml->button("btnBuscar","btnPrincipal","Buscar","");
+
+            $lVars["btnRegresar"] = $this->oHtml->button("btnVerSemana","btnPrincipal","Regresar","");
+            $lVars["btnImprimir"] = $this->oHtml->button("btnBuscar","btnPrincipal","Imprimir","");
 
 
 
             $this->lView->replacePage("BBMas",$lVars);
 
+        }
+
+        public function Ayer()
+        {
+            echo "Jojoo!";
+            echo "<SCRIPT LANGUAGE=\"javascript\"><!--n";
+            echo " alert (\"message\");n";
+            echo "// --></SCRIPT>n";
         }
 }?>

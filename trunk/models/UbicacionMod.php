@@ -26,19 +26,22 @@ class UbicacionMod extends ModelLib
         $node = $dom->createElement("ubicaciones");
         $parnode = $dom->appendChild($node);
 
-        $qListar = sprintf(ListUbicacion,$CeluarID,$FechaMax,$FechaMin);
+        $qListar = sprintf(ListUbicacion,$CeluarID,$FechaMin,$FechaMax);
         $lResult=$this->db->ExecuteQuery($qListar);
 
+        $cont = 1;
         while ($row = @mysql_fetch_assoc($lResult))
         {
             $node = $dom->createElement("ubicacion");
             $newnode = $parnode->appendChild($node);
 
-            $newnode->setAttribute("CelularBBID", $row['CelularBBID']);
+            $newnode->setAttribute("CelularBBID", $cont);
             $newnode->setAttribute("Fecha", $row['Fecha']);
             $newnode->setAttribute("Latitud", $row['Latitud']);
             $newnode->setAttribute("Longitud", $row['Longitud']);
             $newnode->setAttribute("type", $row['type']);
+
+            $cont+=1;
         }
 
         return $dom->saveXML();

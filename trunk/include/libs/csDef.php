@@ -31,20 +31,22 @@ define("iconos","var iconBlue = new GIcon();
     customIcons[\"bar\"] = iconRed;
 ");
 
-define("loadgmaps","function load() {
+define("loadgmaps","function loadMap(Max,Min) {
       if (GBrowserIsCompatible()) { alert('9');
         var map = new GMap2(document.getElementById(\"map\"));
         map.addControl(new GSmallMapControl());
         map.addControl(new GMapTypeControl());
         map.setCenter(new GLatLng(-12.05, -77.05), 13);
 
-        GDownloadUrl(\"index.php?Page=BB&Action=Genxml\", function(data) {
+        var url = \"index.php?Page=BB&Action=Genxml&FechaMax=Max&FechaMin=Min\";
+
+        GDownloadUrl(url, function(data) {
           var xml = GXml.parse(data);
           
           var markers = xml.documentElement.getElementsByTagName(\"ubicacion\");
 
           for (var i = 0; i < markers.length; i++) {
-            
+            alert('s');
             var name = markers[i].getAttribute(\"CelularBBID\");
             var Fecha = markers[i].getAttribute(\"Fecha\");
             var type = markers[i].getAttribute(\"type\");
