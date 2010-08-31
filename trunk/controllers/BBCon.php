@@ -114,11 +114,4 @@ class BBCon extends ControllerLib
 
         }
 
-        public function Ayer()
-        {
-            echo "Jojoo!";
-            echo "<SCRIPT LANGUAGE=\"javascript\"><!--n";
-            echo " alert (\"message\");n";
-            echo "// --></SCRIPT>n";
-        }
 }?>
