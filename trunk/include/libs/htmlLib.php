@@ -65,7 +65,7 @@ class HtmlLib
 		$lHtml = $lHtml.$js[0].'="'.$js[1].'" ';
 		$lHtml = $lHtml.' />';
 
-		$lHtml.= "<div id='".$div."' style='position:absolute;background-color:white;layer-background-color:white;'></div></td>";
+		$lHtml.= "<div id='".$div."' style='position:absolute;background-color:white;layer-background-color:white;z-index:5'></div></td>";
 
 		return $lHtml;
 	}
