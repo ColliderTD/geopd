@@ -40,6 +40,7 @@ class BBCon extends ControllerLib
             $sPage="index.php?Page=BB&Action=";
             $this->oAjax->AgrFuncion($sPage."lsCelulares",'lsCelulares','','divResultados','innerHTML','GET',1,1);
             $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles',array('CelID'),'divResultados','innerHTML','GET',1,1);
+            $this->oAjax->AgrFuncion($sPage."Buscar",'Buscar','','divSalida','innerHTML','GET',1,1);
 
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
@@ -101,17 +102,27 @@ class BBCon extends ControllerLib
             $_SESSION["sCelID"] = $_GET["CelID"];
 
             $lVars["btnVerHoy"] = $this->oHtml->button("btnVerHoy","btnPrincipal","Hoy",array('onclick','loadMap(\'2008-12-30\',\'2006-11-15\')'));
+            $lVars["btnBuscar"] = $this->oHtml->submit("btnBuscar","btnPrincipal","Buscar",array("onClick","Buscar(this.form);"));
 
-            $lVars["btnRegresar"] = $this->oHtml->button("btnVerSemana","btnPrincipal","Regresar","");
-            $lVars["btnImprimir"] = $this->oHtml->button("btnBuscar","btnPrincipal","Imprimir","");
+            $lVars["btnRegresar"] = $this->oHtml->button("btnRegresar","btnPrincipal","Regresar","");
+            $lVars["btnImprimir"] = $this->oHtml->button("btnImprimir","btnPrincipal","Imprimir","");
 
             $lVars['edtFecInicio']= $this->oHtml->textfecha("fdiv1",'edtFec1','edt','',10,array("onclick","cal1x.select(this,'edtFec1','yyyy-MM-dd'); return false;"));
             $lVars['edtFecFin']= $this->oHtml->textfecha('fdiv2','edtFec2','edt','',10,array("onclick","cal2x.select(this,'edtFec2','yyyy-MM-dd'); return false;"));
 
+            $lVars['edtHoraInicio']=$this->oHtml->textbox('edtHoraInicio','edtDos','10:00',5,'');
+            $lVars['edtHoraFin']=$this->oHtml->textbox('edtHoraFin','edtDos','24:00',5,'');
 
 
             $this->lView->replacePage("BBMas",$lVars);
 
         }
+
+        public function Buscar()
+        {
+            $HoraInicio = $_GET['edtFec1'];
+            echo "Hora: ".$HoraInicio;
+        }
+
 
 }?>
