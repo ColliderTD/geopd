@@ -102,7 +102,7 @@ class BBCon extends ControllerLib
             $_SESSION["sCelID"] = $_GET["CelID"];
 
             $lVars["btnVerHoy"] = $this->oHtml->button("btnVerHoy","btnPrincipal","Hoy",array('onclick','loadMap(\'2008-12-30\',\'2006-11-15\')'));
-            $lVars["btnBuscar"] = $this->oHtml->submit("btnBuscar","btnPrincipal","Buscar",array("onClick","Buscar(this.form);"));
+            $lVars["btnBuscar"] = $this->oHtml->button("btnBuscar","btnPrincipal","Buscar",array("onClick","Buscar(this.form);"));
 
             $lVars["btnRegresar"] = $this->oHtml->button("btnRegresar","btnPrincipal","Regresar","");
             $lVars["btnImprimir"] = $this->oHtml->button("btnImprimir","btnPrincipal","Imprimir","");
