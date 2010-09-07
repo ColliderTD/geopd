@@ -40,7 +40,7 @@ class BBCon extends ControllerLib
             $sPage="index.php?Page=BB&Action=";
             $this->oAjax->AgrFuncion($sPage."lsCelulares",'lsCelulares','','divResultados','innerHTML','GET',1,1);
             $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles',array('CelID'),'divResultados','innerHTML','GET',1,1);
-            $this->oAjax->AgrFuncion($sPage."Buscar",'Buscar','','divSalida','innerHTML','GET',1,1);
+            $this->oAjax->AgrFuncion($sPage."Buscar",'Buscar',array('buscarubicaciones'),'divSalida','innerHTML','POST',1,1);
 
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
@@ -120,9 +120,22 @@ class BBCon extends ControllerLib
 
         public function Buscar()
         {
-            $HoraInicio = $_GET['edtFec1'];
-            echo "Hora: ".$HoraInicio;
+            $HoraInicio = $_POST['edtHoraInicio'];
+            $HoraFin = $_POST['edtHoraFin'];
+            $FechaInicio = $_POST['edtFec1'];
+            $FechaFin = $_POST['edtFec2'];
+
+            $FechaMax = $FechaFin." ".$HoraFin.":00";
+            $FechaMin = $FechaInicio." ".$HoraInicio.":00";
+
+            $_GET["FechaMax"] = $FechaMax;
+            $_GET["FechaMin"] = $FechaMin;
+
+            echo "<script language=javascript>alert('Please enter a valid username.')</script>";
+            
         }
 
 
-}?>
+
+}
+?>
