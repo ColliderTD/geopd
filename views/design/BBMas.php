@@ -1,4 +1,4 @@
-<form name="buscarubicaciones" id="buscarubicaciones" action="" method="get">
+<form name="buscarubicaciones" id="buscarubicaciones" action="" method="post">
 <table width="95%" class="tblBusqueda">
 	<tr class="tilPagina">
 		<td colspan="5">MAPA</td>
