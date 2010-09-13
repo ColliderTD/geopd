@@ -89,6 +89,21 @@ function chgDatos(form)
  else {form.edtDocumento.value='';
  form.edtDocumento.disabled=true;}}");
 
+define("busqueda","function Consulta()
+{
+    var f = document.forms['buscarubicaciones'];
+
+    var horainicio = f.elements['edtHoraInicio'].value;
+    var horafin = f.elements['edtHoraFin'].value;
+    var fechainicio = f.elements['edtFec1'].value;
+    var fechafin = f.elements['edtFec2'].value;
+
+    var max = fechafin + \" \" + horafin + \":00\";
+    var min = fechainicio + \" \" + horainicio + \":00\";
+
+    loadMap(max,min);
+}");
+
 define("chgDocumento","
 function chgDocumento(form)
 {var documento = form.edtDocumento.value;
