@@ -45,6 +45,7 @@ class BBCon extends ControllerLib
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
             $this->oAjax->AgrJsPage("createmarkergmaps",null);
+            $this->oAjax->AgrJsPage("busqueda",null);
 
             $this->oAjax->AgrJsPage("calendario",array('cal1x','fdiv1'));
             $this->oAjax->AgrJsPage("calendario",array('cal2x','fdiv2'));
@@ -99,10 +100,13 @@ class BBCon extends ControllerLib
         {
             $lVars=null;
 
+            $hoy = date("Y-m-d", time());
+            $funcion = "loadMap('".$hoy." 23:59:59"."','".$hoy." 00:00:00"."')";
+
             $_SESSION["sCelID"] = $_GET["CelID"];
 
-            $lVars["btnVerHoy"] = $this->oHtml->button("btnVerHoy","btnPrincipal","Hoy",array('onclick','loadMap(\'2008-12-30\',\'2006-11-15\')'));
-            $lVars["btnBuscar"] = $this->oHtml->button("btnBuscar","btnPrincipal","Buscar",array("onClick","Buscar(this.form);"));
+            $lVars["btnVerHoy"] = $this->oHtml->button("btnVerHoy","btnPrincipal","Hoy",array('onclick',$funcion));
+            $lVars["btnBuscar"] = $this->oHtml->button("btnBuscar","btnPrincipal","Buscar",array("onClick","Consulta()"));
 
             $lVars["btnRegresar"] = $this->oHtml->button("btnRegresar","btnPrincipal","Regresar","");
             $lVars["btnImprimir"] = $this->oHtml->button("btnImprimir","btnPrincipal","Imprimir","");
@@ -116,23 +120,9 @@ class BBCon extends ControllerLib
 
             $this->lView->replacePage("BBMas",$lVars);
 
-        }
+            echo $funcion;
 
-        public function Buscar()
-        {
-            $HoraInicio = $_POST['edtHoraInicio'];
-            $HoraFin = $_POST['edtHoraFin'];
-            $FechaInicio = $_POST['edtFec1'];
-            $FechaFin = $_POST['edtFec2'];
 
-            $FechaMax = $FechaFin." ".$HoraFin.":00";
-            $FechaMin = $FechaInicio." ".$HoraInicio.":00";
-
-            $_GET["FechaMax"] = $FechaMax;
-            $_GET["FechaMin"] = $FechaMin;
-
-            echo "<script language=javascript>alert('Please enter a valid username.')</script>";
-            
         }
 
 
