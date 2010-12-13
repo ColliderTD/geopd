@@ -66,4 +66,12 @@ class UsuarioMod extends ModelLib
 		return $lResult;
 	}
 
+        public function GetUsuarioByID($sUserID)
+	{
+		$qUsuarios = sprintf(GetUsuarioByID,$sUserID);
+		$lResult=$this->db->ExecuteQuery($qUsuarios);
+		$object = $this->db->TableToObject("UsuarioDto",$lResult);
+		return $object;
+	}
+
 }?>

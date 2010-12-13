@@ -20,4 +20,31 @@ class CelularBBMod extends ModelLib
 
             return $lResult;
         }
+
+        public function GetCelularesAll()
+        {
+            $qCelularBBList = sprintf(GetCelularBBB);
+            $lResult=$this->db->ExecuteQuery($qCelularBBList);
+
+            return $lResult;
+        }
+
+        public function InsCelularBB($iIDUsuario,$sNombres,$sApellidos,$sIMEI,$sNumero)
+	{
+		$qCelularBB = sprintf(InsCelularBB,$sNombres,$sApellidos,$sIMEI,$sNumero);
+		$this->db->ExecuteNroQuery($qCelularBB);
+
+                $iCelID = $this->db->Id();
+
+                if($iCelID > 0)
+                {
+                    $qCelUser = sprintf(InsCelUsuario,$iIDUsuario,$iCelID);
+                    $this->db->ExecuteQuery($qCelUser);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+	}
 }?>

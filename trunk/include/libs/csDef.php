@@ -32,7 +32,10 @@ define("iconos","var iconBlue = new GIcon();
 ");
 
 define("loadgmaps","function loadMap(Max,Min) {
-      if (GBrowserIsCompatible()) { alert('9');
+
+        document.title = \"GEOPD - Vista detalle\";
+  
+      if (GBrowserIsCompatible()) { 
         var map = new GMap2(document.getElementById(\"map\"));
         map.addControl(new GSmallMapControl());
         map.addControl(new GMapTypeControl());

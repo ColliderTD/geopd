@@ -4,14 +4,18 @@
 		<td colspan="5"></td>
 	</tr>
 	<tr class="tilPagina">
-		<td colspan="5">REGISTRO DE USUARIO</td>
+		<td colspan="5">MANTENIMIENTO DE USUARIOS</td>
 	</tr>
 	<tr class="linEspacioQ">
 		<td colspan="5"></td>
 	</tr>
-        <tr>
-            jojojo
-        </tr>
+	<tr class="menBarra">
+		<td width="20%"><?=$btnListar;?></td>
+		<td width="20%"><?=$btnUsuario?></td>
+		<td width="20%"></td>
+		<td width="20%"></td>
+		<td width="20%"></td>
+	</tr>
 	<tr class="linEspacioQ">
 		<td colspan="4"></td>
 	</tr>
