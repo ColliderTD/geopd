@@ -40,7 +40,8 @@ echo $Ajax;
 								<td><?=$edtContrasena;?></td>
 							</tr>
 							<tr>
-								<td colspan="2" align="center"><?=$btnIngresar;?></td>
+								<td colspan="1" align="center"><?=$btnIngresar;?></td>
+                                                                <td colspan="1" align="center"><?=$btnRegistrar;?></td>
 							</tr>
 							<tr>
 								<td colspan="2"><?=$Mensaje;?></td>

@@ -34,7 +34,7 @@ class UsuarioCon extends ControllerLib
 			$eUsuario->Persistencia();
 			$_SESSION['eUsuario']=serialize($eUsuario);
 			$_SESSION['popUpIni']=true;
-			header("Location:index.php?Page=BB");
+                        header("Location:index.php?Page=BB");
 		}
 		else
 		{

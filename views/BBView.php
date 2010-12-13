@@ -10,8 +10,8 @@
 		<td colspan="5"></td>
 	</tr>
 	<tr class="menBarra">
-		<td width="20%"><?=$btnVerMapa?></td>
-		<td width="20%"></td>
+                <td width="20%"><?=$btnLista?></td>
+		<td width="20%"><?=$btnUsuario?></td>
 		<td width="20%"></td>
 		<td width="20%"></td>
 		<td width="20%"></td>
@@ -24,8 +24,11 @@
 		<div id="divResultados"><?=$dgCelular;?></div>
 		</td>
 	</tr>
+        <tr class="linEspacioQ">
+		<td colspan="4"></td>
+	</tr>
 	<tr class="menBarra">
-		<td colspan="5" align="right"><?=$btnRegresar;?></td>
+		<td colspan="5" align="right"><?=$btnCelular;?></td>
 	</tr>
 </table>
 

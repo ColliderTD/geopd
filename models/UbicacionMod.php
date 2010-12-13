@@ -9,15 +9,22 @@ class UbicacionMod extends ModelLib
 
     public function RegistrarNuevaUbicacion($IMEI,$Longitud,$Latitud)
     {
+        $qLog = "insert into log (IMEI) values('".$IMEI."')";
+        $this->db->ExecuteQuery($qLog);
+
         $oCelularBBMod = new CelularBBMod();
         $oCelularBBDTO = new CelularBBDTO();
         $oCelularBBDTO = $oCelularBBMod->GetCelularID($IMEI);
 
-	$qInsertar = sprintf(InsUbicacion,$Longitud,$Latitud, $oCelularBBDTO->CelularBBID);
-        $this->db->ExecuteQuery($qInsertar);
+//        if($oCelularBBDTO->CelularBBID > 0)
+//        {
+         $qInsertar = sprintf(InsUbicacion,$Longitud,$Latitud, $oCelularBBDTO->CelularBBID);
+            $this->db->ExecuteQuery($qInsertar);
 
-        return true;
-
+            return true;
+//        }
+//        else
+//            return false;
     }
 
     public function XMLUbicacion($CeluarID,$FechaMax,$FechaMin)

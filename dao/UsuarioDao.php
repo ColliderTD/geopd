@@ -33,5 +33,9 @@ where u.Usuario='%s'");
 define("GetUsuarios",
 "SELECT u.UsuarioID, u.RolID, u.Usuario, u.Contrasenia, concat(u.Apellidos,' , ', u.Nombres) as Nombres, r.RolNom
 FROM usuario AS u, rol r
-where u.RolID=r.RolID and u.Usuario like '%s%%'")
+where u.RolID=r.RolID and u.Usuario like '%s%%'");
+
+define("GetUsuarioByID",
+"SELECT * FROM usuario where UsuarioID = %s")
+
 ?>

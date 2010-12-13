@@ -6,19 +6,9 @@
 	</tr>
 
 	<tr class="menBarra">
-                <td width="20%">Fecha Inicio</td>
-                <td width="20%"><?=$edtFecInicio;?></td>
-                <td width="20%">Hora  Inicio</td>
-                <td width="20%"><?=$edtHoraInicio;?></td>
-                <td width="20%"><?=$btnVerHoy;?></td>
+
 	</tr>
-        <tr class="menBarra">
-                <td width="20%">Fecha Fin</td>
-                <td width="20%"><?=$edtFecFin;?></td>
-                <td width="20%">Hora  Fin</td>
-                <td width="20%"><?=$edtHoraFin;?></td>
-                <td width="20%"><?=$btnBuscar;?></td>
-	</tr>
+
         <tr class="menBarra">
 		<td width="20%"></td>
 
@@ -26,7 +16,7 @@
 	<tr>
 		<td colspan="5">
                     <div id="divResultados" style="z-index:-1">
-                        <div id="map" style="width: 1000px; height: 400px"></div>
+                        <?=$dgCelular;?>
                     </div>
                     <div id="divSalida" style="z-index:-1">
 
