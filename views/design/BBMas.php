@@ -35,10 +35,10 @@
 	</tr>
 	<tr class="menBarra">
                 <td width="20%"><?=$btnImprimir;?></td>
-		<td width="20%"><?=$btnRegresar;?></td>
-                <td width="20%"></td>
+                <td width="20%"><?=$btnAmpliar;?></td>
 		<td width="20%"></td>
 		<td width="20%"></td>
+                <td width="20%"><?=$btnRegresar;?></td>
 	</tr>
 </table>
 </form>
