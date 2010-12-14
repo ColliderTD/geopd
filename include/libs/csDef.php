@@ -34,7 +34,7 @@ define("iconos","var iconBlue = new GIcon();
 define("loadgmaps","function loadMap(Max,Min) {
 
         document.title = \"GEOPD - Vista detalle\";
-  
+
       if (GBrowserIsCompatible()) { 
         var map = new GMap2(document.getElementById(\"map\"));
         map.addControl(new GSmallMapControl());
@@ -105,6 +105,36 @@ define("busqueda","function Consulta()
     var min = fechainicio + \" \" + horainicio + \":00\";
 
     loadMap(max,min);
+}");
+
+define("popupfullscreen","function popupfullscreen(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, ',type=fullWindow,fullscreen,scrollbars=yes');
+return false;
+}
+
+");
+define("ampliar","function Ampliar()
+{
+    var f = document.forms['buscarubicaciones'];
+
+    var horainicio = f.elements['edtHoraInicio'].value;
+    var horafin = f.elements['edtHoraFin'].value;
+    var fechainicio = f.elements['edtFec1'].value;
+    var fechafin = f.elements['edtFec2'].value;
+
+    var max = fechafin + \" \" + horafin + \":00\";
+    var min = fechainicio + \" \" + horainicio + \":00\";
+
+    popupfullscreen(\"index.php?Page=BBAmpliar&max=\"+max+\"&min=\"+min,\"Vista amplificada\");
+
+
 }");
 
 define("chgDocumento","
