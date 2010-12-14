@@ -43,12 +43,15 @@ class BBCon extends ControllerLib
             $this->oAjax->AgrFuncion($sPage."lsCelulares",'lsCelulares',array('SelUserID'),'divResultados','innerHTML','GET',1,1);
             $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles',array('CelID'),'divResultados','innerHTML','GET',1,1);
             $this->oAjax->AgrFuncion($sPage."Buscar",'Buscar',array('buscarubicaciones'),'divSalida','innerHTML','POST',1,1);
+            $this->oAjax->AgrFuncion($sPage."Ampliar",'Ampliar',array('buscarubicaciones'),'divResultados','innerHTML','POST',1,1);
 
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
             $this->oAjax->AgrJsPage("createmarkergmaps",null);
             $this->oAjax->AgrJsPage("busqueda",null);
-
+            $this->oAjax->AgrJsPage("popupfullscreen",null);
+            $this->oAjax->AgrJsPage("ampliar",null);
+            
             $this->oAjax->AgrJsPage("calendario",array('cal1x','fdiv1'));
             $this->oAjax->AgrJsPage("calendario",array('cal2x','fdiv2'));
 
@@ -237,6 +240,8 @@ class BBCon extends ControllerLib
             //$lVars["btnRegresar"] = $this->oHtml->button("btnRegresar","btnPrincipal","Regresar","");
             $lVars['btnRegresar']= $this->oHtml->imgbutton("window.open('index.php?Page=BB','_parent')",'pRegresar.png','Regresar');
             $lVars["btnImprimir"] = $this->oHtml->button("btnImprimir","btnPrincipal","Imprimir",array('onclick',"window.print();return false"));
+            
+            $lVars["btnAmpliar"] = $this->oHtml->button("btnAmpliar","btnPrincipal","Ampliar",array('onclick','Ampliar();'));
 
             $lVars['edtFecInicio']= $this->oHtml->textfecha("fdiv1",'edtFec1','edt','',10,array("onclick","cal1x.select(this,'edtFec1','yyyy-MM-dd'); return false;"));
             $lVars['edtFecFin']= $this->oHtml->textfecha('fdiv2','edtFec2','edt','',10,array("onclick","cal2x.select(this,'edtFec2','yyyy-MM-dd'); return false;"));
