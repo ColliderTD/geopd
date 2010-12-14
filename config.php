@@ -26,5 +26,6 @@ define('lCss',
 define('lJs',
 '<script src="'.Res.'quest.js"></script>
 <script src="'.Res.'calendar.js"></script>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAA50e3RJnYwH2bPDvupHOI-RQuvlcl__Ak_RMk9i9n60txCowkCRSVux6nSsddsLs2rmIwM47iOxM9cQ" type="text/javascript"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAA50e3RJnYwH2bPDvupHOI-RQJeIZUSjcKtn6-mdvBAJEp0FFr5hRSIoc2pqNnW7S9QsiGUdtC5eIBVg" type="text/javascript"></script>
+
 ');?>
