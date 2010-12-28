@@ -43,23 +43,35 @@ define("loadgmaps","function loadMap(Max,Min) {
 
         var url = 'index.php?Page=BB&Action=Genxml&FechaMax='+Max+'&FechaMin='+Min;
 
+        
+
+        
         GDownloadUrl(url, function(data) {
           var xml = GXml.parse(data);
-          
+          var salida = '<table border=\"1\"><th>Numero</th><th>&nbsp</th><th>Direccion aproximada</th>';
+          var salida2 = '<table border=\"1\"><th>Numero</th><th>&nbsp</th><th>Direccion aproximada</th>';
           var markers = xml.documentElement.getElementsByTagName(\"ubicacion\");
 
           for (var i = 0; i < markers.length; i++) {
        
             var name = markers[i].getAttribute(\"CelularBBID\");
+            var direccion = markers[i].getAttribute(\"Direccion\");
             var Fecha = markers[i].getAttribute(\"Fecha\");
             var type = markers[i].getAttribute(\"type\");
             var point = new GLatLng(parseFloat(markers[i].getAttribute(\"Latitud\")),
                                     parseFloat(markers[i].getAttribute(\"Longitud\")));
             var marker = createMarker(point, name, Fecha, type);
             map.addOverlay(marker);
+
+            if(i<=10)
+                salida = salida + '<tr><td>' + name + '</td><td>&nbsp</td><td>' + direccion + '</td></tr>';
+            salida2 = salida2 + '<tr><td>' + name + '</td><td>&nbsp</td><td>' + direccion + '</td></tr>';
+  
           }
+            var txt=document.getElementById('divSalida');
+            txt.innerHTML= salida + '</table>';
           map.setCenter(new GLatLng(parseFloat(markers[markers.length-1].getAttribute(\"Latitud\")),parseFloat(markers[markers.length-1].getAttribute(\"Longitud\"))), 13);
-        });
+        });    
       }
     }
 ");
@@ -134,6 +146,11 @@ define("ampliar","function Ampliar()
 
     popupfullscreen(\"index.php?Page=BBAmpliar&max=\"+max+\"&min=\"+min,\"Vista amplificada\");
 
+
+}");
+
+define("imprimir","function ImprimirMapa()
+{
 
 }");
 

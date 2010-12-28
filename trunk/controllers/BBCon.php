@@ -21,16 +21,74 @@ class BBCon extends ControllerLib
             $this->oAjax=new AjaxLib();
 	}
 
+        private function ObtenerDireccion($lat,$lon)
+        {
+            $url = "http://maps.google.com/maps/geo?q=".$lat.",".$lon."&output=xml";
+
+            $xml_document = file_get_contents($url);
+
+            $xml = simplexml_load_string($xml_document);
+
+            $direccion = $xml->Response->Placemark->address;
+
+            return $direccion;
+        }
+
+        public function ActualizarTodo()
+	{
+            $oUbicacionMod = new UbicacionMod();
+            $oUbicacionMod->ActualizarTodo();
+
+	}
+
 	public function RegUbicacion()
 	{
             $IMEI = $_GET["imei"];
             $Longitud = $_GET["longitud"];
             $Latitud = $_GET["latitud"];
 
+            $direccion = $this->ObtenerDireccion($Latitud,$Longitud);
+
             $oUbicacionMod = new UbicacionMod();
-            $oUbicacionMod->RegistrarNuevaUbicacion($IMEI, $Longitud, $Latitud);
+            $oUbicacionMod->RegistrarNuevaUbicacion($IMEI, $Longitud, $Latitud, $direccion);
 
 	}
+        
+        public function RegUbicacionCellID()
+        {
+            $IMEI = $_GET["imei"];
+            $celid = $_GET["celid"];
+            $Mcc = $_GET["mcc"];
+            $Mnc = $_GET["mnc"];
+            $Lac = $_GET["lac"];
+
+            $ApiKey = "16911f4f39a3c847d00d350e15d1c069";
+
+            $url = "http://www.opencellid.org/cell/get?key=".$ApiKey."&mnc=".$Mnc."&mcc=".$Mcc."&lac=".$Lac."&cellid=".$celid;
+
+            //header('Content-type: text/xml; charset=iso-8859-1');
+            $xml_document = file_get_contents($url);
+
+            //echo $xml_document;
+            $xml = simplexml_load_string($xml_document);
+
+            $nodo = "cell";
+            $nodo2 = "";
+
+            //var_dump($xml);
+            $rpta = $xml->attributes()->stat;
+
+            if($rpta=='ok')
+            {
+                $Longitud = $xml->cell->attributes()->lon;
+                $Latitud = $xml->cell->attributes()->lat;
+                $direccion = $this->ObtenerDireccion($Latitud,$Longitud);
+
+                $oUbicacionMod = new UbicacionMod();
+                $oUbicacionMod->RegistrarNuevaUbicacion($IMEI, $Longitud, $Latitud,$direccion);
+            }
+            
+        }
 
         public function Load()
         {
@@ -44,6 +102,7 @@ class BBCon extends ControllerLib
             $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles',array('CelID'),'divResultados','innerHTML','GET',1,1);
             $this->oAjax->AgrFuncion($sPage."Buscar",'Buscar',array('buscarubicaciones'),'divSalida','innerHTML','POST',1,1);
             $this->oAjax->AgrFuncion($sPage."Ampliar",'Ampliar',array('buscarubicaciones'),'divResultados','innerHTML','POST',1,1);
+            //$this->oAjax->AgrFuncion($sPage."ImprimirUbicaciones",'ImprimirUbicaciones','','divResultados','innerHTML','GET',1,1);
 
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
@@ -225,6 +284,30 @@ class BBCon extends ControllerLib
             echo $oUbicacionMod->XMLUbicacion($CelularBBID,$FechaMax,$FechaMin);
         }
 
+        public function ImprimirUbicaciones()
+        {
+            //Obtenermos arreglo de coordenadas
+            $FechaMax = $_GET["FechaMax"];
+            //if(isset($_GET["FechaMin"]))
+            $FechaMin = $_GET["FechaMin"];
+            $urlgemxml = "index.php?Page=BB&Action=Genxml&FechaMax=".$FechaMax."&FechaMin=".$FechaMin;
+            //
+
+            echo $urlgemxml;
+
+            $lon = -106.016436;
+            $lat = 39.651125;
+            $url = "http://maps.google.com/maps/geo?q=".$lat.",".$lon."&output=xml";
+
+            $xml_document = file_get_contents($url);
+
+            $xml = simplexml_load_string($xml_document);
+
+            $direccion = $xml->Response->Placemark->address;
+            //var_dump($xml);
+            echo $direccion;
+        }
+
         public function CelDetalles()
         {
             $lVars=null;
@@ -236,6 +319,7 @@ class BBCon extends ControllerLib
 
             $lVars["btnVerHoy"] = $this->oHtml->button("btnVerHoy","btnPrincipal","Hoy",array('onclick',$funcion));
             $lVars["btnBuscar"] = $this->oHtml->button("btnBuscar","btnPrincipal","Buscar",array("onClick","Consulta()"));
+
 
             //$lVars["btnRegresar"] = $this->oHtml->button("btnRegresar","btnPrincipal","Regresar","");
             $lVars['btnRegresar']= $this->oHtml->imgbutton("window.open('index.php?Page=BB','_parent')",'pRegresar.png','Regresar');
@@ -252,6 +336,7 @@ class BBCon extends ControllerLib
 
             $this->lView->replacePage("BBMas",$lVars);
 
+            //ImprimirUbicaciones();
         }
 }
 ?>

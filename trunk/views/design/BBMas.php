@@ -28,7 +28,7 @@
                     <div id="divResultados" style="z-index:-1">
                         <div id="map" style="width: 1000px; height: 400px"></div>
                     </div>
-                    <div id="divSalida" style="z-index:-1">
+                    <div id="divSalida" style="z-index:-1" align="center">
 
                     </div>
 		</td>
