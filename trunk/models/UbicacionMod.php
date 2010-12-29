@@ -7,7 +7,7 @@ require_once(Dto."CelularBBDTO.php");
 class UbicacionMod extends ModelLib
 {
 
-    public function RegistrarNuevaUbicacion($IMEI,$Longitud,$Latitud,$Direccion)
+    public function RegistrarNuevaUbicacion($IMEI,$Longitud,$Latitud,$Direccion,$Pais,$Departamento,$Ciudad,$Distrito,$Calle)
     {
         $qLog = "insert into log (IMEI) values('".$IMEI."')";
         $this->db->ExecuteQuery($qLog);
@@ -18,7 +18,7 @@ class UbicacionMod extends ModelLib
 
 //        if($oCelularBBDTO->CelularBBID > 0)
 //        {
-         $qInsertar = sprintf(InsUbicacion,$Longitud,$Latitud, $oCelularBBDTO->CelularBBID,$Direccion);
+         $qInsertar = sprintf(InsUbicacion,$Longitud,$Latitud, $oCelularBBDTO->CelularBBID,$Direccion,$Pais,$Departamento,$Ciudad,$Distrito,$Calle);
             $this->db->ExecuteQuery($qInsertar);
 
             return true;
@@ -48,6 +48,37 @@ class UbicacionMod extends ModelLib
 
         $qActualizar = sprintf(Actualizar,$Direccion,$UbicacionID);
         $this->db->ExecuteQuery($qActualizar);
+    }
+
+    public function ListarUbicaciones($CelularBBID,$FechaMax,$FechaMin)
+    {
+        $qListar = sprintf(ListUbicacion,$CelularBBID,$FechaMin,$FechaMax);
+        $lResult=$this->db->ExecuteQuery($qListar);
+
+        return $lResult;
+        /*$lista = null;
+        
+        $cont = 1;
+        while ($row = @mysql_fetch_assoc($lResult))
+        {
+            $oUbicacion = new UbicacionDTO();
+
+            $oUbicacion->Fecha = $row['Fecha'];
+            $oUbicacion->Latitud = $row['Latitud'];
+            $oUbicacion->Longitud = $row['Longitud'];
+            $oUbicacion->Direccion = $row['Direccion'];
+            $oUbicacion->Pais = $row['Pais'];
+            $oUbicacion->Departamento = $row['Departamento'];
+            $oUbicacion->Ciudad = $row['Ciudad'];
+            $oUbicacion->Distrito = $row['Distrito'];
+            $oUbicacion->Calle = $row['Calle'];
+
+            $lista[$cont] = $oUbicacion;
+
+            $cont+=1;
+ 
+        }
+            return $lista;*/
     }
 
     public function ActualizarTodo()
@@ -89,6 +120,11 @@ class UbicacionMod extends ModelLib
             $newnode->setAttribute("Longitud", $row['Longitud']);
             $newnode->setAttribute("type", $row['type']);
             $newnode->setAttribute("Direccion", $row['Direccion']);
+            $newnode->setAttribute("Pais", $row['Pais']);
+            $newnode->setAttribute("Departamento", $row['Departamento']);
+            $newnode->setAttribute("Ciudad", $row['Ciudad']);
+            $newnode->setAttribute("Distrito", $row['Distrito']);
+            $newnode->setAttribute("Calle", $row['Calle']);
 
             $cont+=1;
         }

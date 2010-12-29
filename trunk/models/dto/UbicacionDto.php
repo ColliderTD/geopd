@@ -12,6 +12,14 @@ class UbicacionDTO extends ModelLib
     var $IMEI;
     var $CelularID;
 
+    var $Direccion;
+    var $Pais;
+    var $Departamento;
+    var $Ciudad;
+    var $Distrito;
+    var $Calle;
+
+
     function __construct() {}
 
     public function Persistencia()

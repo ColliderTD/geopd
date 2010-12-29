@@ -13,6 +13,14 @@ class CelularBBMod extends ModelLib
             return $object;
 	}
 
+        public function GetCelulaByrID($CelID)
+	{
+            $qCelularBB = sprintf(GetCelularBBByID,$CelID);
+            $lResult=$this->db->ExecuteQuery($qCelularBB);
+            $object = $this->db->TableToObject("CelularBBDTO",$lResult);
+            return $object;
+	}
+
         public function GetCelulares($UsuarioID)
         {
             $qCelularBBList = sprintf(GetCelularBBListByIDUsuario,$UsuarioID);
