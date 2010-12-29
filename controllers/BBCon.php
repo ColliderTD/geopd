@@ -34,11 +34,42 @@ class BBCon extends ControllerLib
             return $direccion;
         }
 
+        private function GuardarUbicacionCompleta($IMEI,$Latitud,$Longitud)
+        {
+            $url = "http://maps.google.com/maps/geo?q=".$Latitud.",".$Longitud."&output=xml";
+
+            $xml_document = file_get_contents($url);
+
+            $xml = simplexml_load_string($xml_document);
+
+            $direccion = $xml->Response->Placemark->address;
+            $pais = $xml->Response->Placemark->AddressDetails->Country->CountryName;
+
+            $departamento = $xml->Response->Placemark->AddressDetails->Country->AdministrativeArea->AdministrativeAreaName;
+
+            $ciudad = $xml->Response->Placemark->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->LocalityName;
+            if($ciudad=='')
+                $ciudad = $xml->Response->Placemark->AddressDetails->Country->AdministrativeArea->Locality->LocalityName;
+
+            $distrito = $xml->Response->Placemark->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->DependentLocality->DependentLocalityName;
+            if($distrito=='')
+                $distrito = $xml->Response->Placemark->AddressDetails->Country->AdministrativeArea->Locality->DependentLocality->DependentLocalityName;
+
+
+            $calle = $xml->Response->Placemark->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->Thoroughfare->ThoroughfareName;
+            if($calle == '')
+                $calle = $xml->Response->Placemark->AddressDetails->Country->AdministrativeArea->Locality->DependentLocality->Thoroughfare->ThoroughfareName;
+
+
+            $oUbicacionMod = new UbicacionMod();
+            $oUbicacionMod->RegistrarNuevaUbicacion($IMEI, $Longitud, $Latitud, $direccion,$pais,$departamento,$ciudad,$distrito,$calle);
+        }
+
+        //Funcion auxiliar no utilizar
         public function ActualizarTodo()
 	{
             $oUbicacionMod = new UbicacionMod();
             $oUbicacionMod->ActualizarTodo();
-
 	}
 
 	public function RegUbicacion()
@@ -47,10 +78,7 @@ class BBCon extends ControllerLib
             $Longitud = $_GET["longitud"];
             $Latitud = $_GET["latitud"];
 
-            $direccion = $this->ObtenerDireccion($Latitud,$Longitud);
-
-            $oUbicacionMod = new UbicacionMod();
-            $oUbicacionMod->RegistrarNuevaUbicacion($IMEI, $Longitud, $Latitud, $direccion);
+            $this->GuardarUbicacionCompleta($IMEI,$Latitud,$Longitud);
 
 	}
         
@@ -82,10 +110,8 @@ class BBCon extends ControllerLib
             {
                 $Longitud = $xml->cell->attributes()->lon;
                 $Latitud = $xml->cell->attributes()->lat;
-                $direccion = $this->ObtenerDireccion($Latitud,$Longitud);
 
-                $oUbicacionMod = new UbicacionMod();
-                $oUbicacionMod->RegistrarNuevaUbicacion($IMEI, $Longitud, $Latitud,$direccion);
+                $this->GuardarUbicacionCompleta($IMEI,$Latitud,$Longitud);
             }
             
         }
@@ -102,7 +128,7 @@ class BBCon extends ControllerLib
             $this->oAjax->AgrFuncion($sPage."CelDetalles",'CelDetalles',array('CelID'),'divResultados','innerHTML','GET',1,1);
             $this->oAjax->AgrFuncion($sPage."Buscar",'Buscar',array('buscarubicaciones'),'divSalida','innerHTML','POST',1,1);
             $this->oAjax->AgrFuncion($sPage."Ampliar",'Ampliar',array('buscarubicaciones'),'divResultados','innerHTML','POST',1,1);
-            //$this->oAjax->AgrFuncion($sPage."ImprimirUbicaciones",'ImprimirUbicaciones','','divResultados','innerHTML','GET',1,1);
+            $this->oAjax->AgrFuncion($sPage."ImprimirReporte",'ImprimirReporte','','divResultados','innerHTML','GET',1,1);
 
             $this->oAjax->AgrJsPage("iconos",null);
             $this->oAjax->AgrJsPage("loadgmaps",null);
@@ -110,6 +136,7 @@ class BBCon extends ControllerLib
             $this->oAjax->AgrJsPage("busqueda",null);
             $this->oAjax->AgrJsPage("popupfullscreen",null);
             $this->oAjax->AgrJsPage("ampliar",null);
+            $this->oAjax->AgrJsPage("imprimir",null);
             
             $this->oAjax->AgrJsPage("calendario",array('cal1x','fdiv1'));
             $this->oAjax->AgrJsPage("calendario",array('cal2x','fdiv2'));
@@ -323,7 +350,7 @@ class BBCon extends ControllerLib
 
             //$lVars["btnRegresar"] = $this->oHtml->button("btnRegresar","btnPrincipal","Regresar","");
             $lVars['btnRegresar']= $this->oHtml->imgbutton("window.open('index.php?Page=BB','_parent')",'pRegresar.png','Regresar');
-            $lVars["btnImprimir"] = $this->oHtml->button("btnImprimir","btnPrincipal","Imprimir",array('onclick',"window.print();return false"));
+            $lVars["btnImprimir"] = $this->oHtml->button("btnImprimir","btnPrincipal","Imprimir",array('onclick',"ImprimirReporte();"));
             
             $lVars["btnAmpliar"] = $this->oHtml->button("btnAmpliar","btnPrincipal","Ampliar",array('onclick','Ampliar();'));
 

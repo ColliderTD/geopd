@@ -42,20 +42,23 @@ define("loadgmaps","function loadMap(Max,Min) {
         map.setCenter(new GLatLng(-12.05, -77.05), 13);
 
         var url = 'index.php?Page=BB&Action=Genxml&FechaMax='+Max+'&FechaMin='+Min;
-
-        
-
-        
+       
         GDownloadUrl(url, function(data) {
           var xml = GXml.parse(data);
-          var salida = '<table border=\"1\"><th>Numero</th><th>&nbsp</th><th>Direccion aproximada</th>';
-          var salida2 = '<table border=\"1\"><th>Numero</th><th>&nbsp</th><th>Direccion aproximada</th>';
+          var salida = '<table class=\"tblInformacion\"><th>Fecha</th><th>&nbsp</th><th width=\"300px\">Direccion</th><th>&nbsp</th><th width=\"100px\">Distrito</th><th>&nbsp</th><th width=\"100px\">Ciudad</th><th>&nbsp</th><th width=\"100px\">Departamento</th><th>&nbsp</th><th width=\"100px\">Pais</th>';
+
+          //var listado = salida;
+
           var markers = xml.documentElement.getElementsByTagName(\"ubicacion\");
 
           for (var i = 0; i < markers.length; i++) {
        
             var name = markers[i].getAttribute(\"CelularBBID\");
-            var direccion = markers[i].getAttribute(\"Direccion\");
+            var direccion = markers[i].getAttribute(\"Calle\");
+            var distrito = markers[i].getAttribute(\"Distrito\");
+            var ciudad = markers[i].getAttribute(\"Ciudad\");
+            var departamento = markers[i].getAttribute(\"Departamento\");
+            var pais = markers[i].getAttribute(\"Pais\");
             var Fecha = markers[i].getAttribute(\"Fecha\");
             var type = markers[i].getAttribute(\"type\");
             var point = new GLatLng(parseFloat(markers[i].getAttribute(\"Latitud\")),
@@ -63,18 +66,24 @@ define("loadgmaps","function loadMap(Max,Min) {
             var marker = createMarker(point, name, Fecha, type);
             map.addOverlay(marker);
 
-            if(i<=10)
-                salida = salida + '<tr><td>' + name + '</td><td>&nbsp</td><td>' + direccion + '</td></tr>';
-            salida2 = salida2 + '<tr><td>' + name + '</td><td>&nbsp</td><td>' + direccion + '</td></tr>';
-  
-          }
+            //listado = listado  + '<tr><td>' + Fecha + '</td><td>&nbsp</td><td>' + direccion + '</td><td>' + distrito + '</td><td>' + ciudad + '</td><td>' + departamento + '</td><td>' + pais + '</td></tr>';
+          
+            if(i<10)
+                salida = salida + '<tr><td>' + Fecha + '</td><td>&nbsp</td><td>' + direccion + '</td><th>&nbsp</th><td>' + distrito + '</td><th>&nbsp</th><td>' + ciudad + '</td><th>&nbsp</th><td>' + departamento + '</td><th>&nbsp</th><td>' + pais + '</td></tr>';
+
+           }
             var txt=document.getElementById('divSalida');
             txt.innerHTML= salida + '</table>';
+
+            //var txt2=document.getElementById('divListado');
+            //txt2.innerHTML= listado + '</table>';
+
           map.setCenter(new GLatLng(parseFloat(markers[markers.length-1].getAttribute(\"Latitud\")),parseFloat(markers[markers.length-1].getAttribute(\"Longitud\"))), 13);
         });    
       }
     }
 ");
+
 
 define("createmarkergmaps","function createMarker(point, name, Fecha, type) {
       var marker = new GMarker(point, customIcons[type]);
@@ -149,8 +158,19 @@ define("ampliar","function Ampliar()
 
 }");
 
-define("imprimir","function ImprimirMapa()
+define("imprimir","function ImprimirReporte()
 {
+    var f = document.forms['buscarubicaciones'];
+
+    var horainicio = f.elements['edtHoraInicio'].value;
+    var horafin = f.elements['edtHoraFin'].value;
+    var fechainicio = f.elements['edtFec1'].value;
+    var fechafin = f.elements['edtFec2'].value;
+
+    var max = fechafin + \" \" + horafin + \":00\";
+    var min = fechainicio + \" \" + horainicio + \":00\";
+
+    popupfullscreen(\"index.php?Page=BBImprimir&max=\"+max+\"&min=\"+min,\"Geopd - Reporte de lugares\");
 
 }");
 

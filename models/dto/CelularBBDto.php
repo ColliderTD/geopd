@@ -9,7 +9,7 @@ class CelularBBDTO extends ModelLib
     var $Apellidos;
     var $IMEI;
     var $Numero;
-
+    
     function __construct() {}
 
     public function Persistencia()

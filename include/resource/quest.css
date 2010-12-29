@@ -168,7 +168,9 @@ body {
 	border-style: solid;
 }
 
-.tblInformacionD {font-size: 11px;background-color: #FAFAFA;color: #000000;}
+.tblInformacionD {font-size: 11px;background-color: #FAFAFA;color: #000000;
+    font-family: 'Courier New',Courier,monospace;
+}
 
 .tilPagina {font-size: 12px;color: #333333;	font-weight: bold;	text-align: center;}
 

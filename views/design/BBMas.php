@@ -28,9 +28,10 @@
                     <div id="divResultados" style="z-index:-1">
                         <div id="map" style="width: 1000px; height: 400px"></div>
                     </div>
+                    <br/>
                     <div id="divSalida" style="z-index:-1" align="center">
-
                     </div>
+                    <br/>
 		</td>
 	</tr>
 	<tr class="menBarra">
