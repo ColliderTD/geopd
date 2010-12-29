@@ -46,7 +46,7 @@ echo $Ajax;
 	</tr>
 	<tr>
 		<td colspan="6">
-		<div id="divResultados"></div>
+                    <?=$btnImprimir;?>
 		</td>
 	</tr>
     </table>

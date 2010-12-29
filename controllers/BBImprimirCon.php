@@ -42,6 +42,8 @@ class BBImprimirCon extends ControllerLib
             $lVars['persona'] = $oCelular->Apellidos.', '.$oCelular->Nombres;
             $lVars['celular'] = $oCelular->Numero;
             $lVars['imei'] = $oCelular->IMEI;
+
+            $lVars["btnImprimir"] = $this->oHtml->button("btnImprimir","btnPrincipal","Imprimir",array('onclick',"window.print();"));
             
             $dsUbicaciones = $oUbicacionMod->ListarUbicaciones($CelID , $FechaMax, $FechaMin);
 

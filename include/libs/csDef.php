@@ -33,7 +33,14 @@ define("iconos","var iconBlue = new GIcon();
 
 define("loadgmaps","function loadMap(Max,Min) {
 
-        document.title = \"GEOPD - Vista detalle\";
+       document.title = \"GEOPD - Vista detalle\";
+
+      var f = document.forms['buscarubicaciones'];
+
+      var now = new Date();
+
+      f.elements['edtFec1'].value = now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDate();
+      f.elements['edtFec2'].value = now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDate();
 
       if (GBrowserIsCompatible()) { 
         var map = new GMap2(document.getElementById(\"map\"));
@@ -125,7 +132,10 @@ define("busqueda","function Consulta()
     var max = fechafin + \" \" + horafin + \":00\";
     var min = fechainicio + \" \" + horainicio + \":00\";
 
-    loadMap(max,min);
+    if(horainicio == '' || horafin == '' || fechainicio == '' || fechafin == '')
+        alert('Debe llenar todos los campos.');
+    else
+        loadMap(max,min);
 }");
 
 define("popupfullscreen","function popupfullscreen(mylink, windowname)
